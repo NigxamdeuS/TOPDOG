@@ -190,17 +190,16 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
 .logo-img {
-    height: 40px;
+    height: 60px;
     width: auto;
-    transition: transform 0.3s ease;
 }
 
 .logo h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--secondary-color);
     letter-spacing: 0.05em;
@@ -208,6 +207,12 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.logo-subtitle {
+    font-size: 1.2rem;
+    color: #333;
+    margin-left: 10px;
 }
 
 .pc-nav {
@@ -268,11 +273,15 @@ header.scrolled {
     }
 
     .logo-img {
-        height: 30px;
+        height: 45px;
     }
 
     .logo h1 {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
+    }
+
+    .logo-subtitle {
+        font-size: 1rem;
     }
 
     .pc-nav {
@@ -499,7 +508,7 @@ main {
     }
 }
 
-/* ハンバーガーメニューとグローバルナビの表示制�� */
+/* ハンバーガーメニューとグローバルナビの表示制 */
 .openbtn,
 #g-nav,
 .circle-bg {
@@ -611,21 +620,25 @@ footer {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    margin-top: -3rem;
 }
 
 .logo-icon {
-    width: clamp(40px, 8vw, 60px);
+    width: clamp(60px, 10vw, 80px);
     height: auto;
 }
 
 .site-title {
-    font-size: clamp(1.3rem, 2vw, 1.8rem);
-    color: #2196F3;
+    font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     line-height: 1.3;
 }
 
 .title-sub {
-    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
     color: #666;
 }
 
@@ -851,3 +864,51 @@ footer {
     backdrop-filter: blur(5px);
 }
 
+/* SNSアイコン */
+.header-sns {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-right: 20px;
+}
+
+.header-sns a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.header-sns a:hover {
+    transform: translateY(-2px);
+}
+
+.header-sns img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .header-sns {
+        display: none;
+    }
+}
+
+.pc-nav ul li:first-child a {
+    color: #FF0000;
+    border-bottom: 4px solid #FF0000;
+    border-radius: 4px;
+}
+
+/* 最初の項目のホバー効果を上書き */
+.pc-nav ul li:first-child a:hover {
+    color: #FF0000;  /* ホバー時も赤色のまま */
+}
+
+.pc-nav ul li:first-child a::after {
+    display: none;  /* ホバー時の下線アニメーションを無効化 */
+}
