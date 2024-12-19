@@ -572,11 +572,13 @@ footer {
     margin: clamp(1rem, 2vw, 1.5rem);
     margin-bottom: 5rem;
     z-index: 2;
+    text-align: center;
 }
 
 .logo-area {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
 }
@@ -636,22 +638,26 @@ footer {
     position: relative;
     overflow: hidden;
     height: 90vh;
-    margin-left: -5%;
+    margin-left: 0%;
 }
 
 .image-container {
-    width: 98%;
+    width: calc(98%);
     height: 80%;
     max-width: 100%;
     border-radius: 30px;
     border: 7px solid #2196F3;
     overflow: hidden;
+    position: relative;
 }
 
 .main-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    filter: brightness(0.8);
 }
 
 @media (max-width: 768px) {
@@ -692,10 +698,13 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    transition: transform 0.8s ease;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 1;
 }
 
 .slide.active {
+    opacity: 1;
     z-index: 2;
 }
 
@@ -710,5 +719,105 @@ footer {
     object-fit: cover;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+}
+
+.slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; /* グラデーションの高さを調整 */
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 2;
+}
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 40px;
+    color: white;
+    z-index: 3;
+    text-align: center;
+}
+
+.slide-text h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        -2px -2px 4px rgba(0, 0, 0, 0.4),
+        4px 4px 8px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.slide-text p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    border-radius: 30px;
+    transition: background-color 0.5s ease;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.6),
+        -1px -1px 2px rgba(255, 255, 255, 0.1),
+        3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .slide-text h2 {
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+    }
+
+    .slide-text p {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        padding: 10px 20px;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-text h2 {
+        font-size: 2rem;
+    }
+
+    .slide-text p {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}
+
+/* 1枚目のスライド */
+.slide:nth-child(1) .slide-text p {
+    background: rgba(231, 76, 60, 0.3); /* 赤っぽい背景 */
+    backdrop-filter: blur(5px);
+}
+
+/* 2枚目のスライド */
+.slide:nth-child(2) .slide-text p {
+    background: rgba(52, 152, 219, 0.3); /* 青っぽい背景 */
+    backdrop-filter: blur(5px);
+}
+
+/* 3枚目のスライド */
+.slide:nth-child(3) .slide-text p {
+    background: rgba(46, 204, 113, 0.3); /* 緑っぽい背景 */
+    backdrop-filter: blur(5px);
 }
 
