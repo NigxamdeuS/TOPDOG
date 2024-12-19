@@ -1,0 +1,33 @@
+.hero {
+    /* 高さを大きくする */
+    min-height: 500px;  /* 元の値より大きく設定 */
+    padding: 80px 0;    /* 上下のパディングを増やす */
+}
+
+.hero-content {
+    /* コンテンツのサイズを大きくする */
+    max-width: 800px;   /* 幅を広げる */
+    padding: 60px 40px; /* パディングを増やす */
+}
+
+.hero-content h2 {
+    font-size: 3.2em;   /* 文字サイズを大きく */
+    margin-bottom: 30px;
+}
+
+.hero-content p {
+    font-size: 1.8em;   /* 文字サイズを大きく */
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    /* ボタン間の余白を増やす */
+    gap: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+    /* ボタンサイズを大きく */
+    padding: 15px 40px;
+    font-size: 1.2em;
+} 

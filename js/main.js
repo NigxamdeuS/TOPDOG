@@ -1,3 +1,45 @@
+// 初回ロード時のスクロール位置調整
+document.addEventListener('DOMContentLoaded', function() {
+    // スライドショーとAOSの初期化
+    slideShow();
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+
+    // 全てのアンカーリンクに対してスクロール処理を追加
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerHeight = window.innerWidth <= 768 ? 80 : 100;
+                const position = target.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: position,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // 初回ロード時にハッシュがある場合の処理
+    if (location.hash) {
+        setTimeout(function() {
+            const target = document.querySelector(location.hash);
+            if (target) {
+                const headerHeight = window.innerWidth <= 768 ? 80 : 100;
+                const position = target.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: position,
+                    behavior: 'smooth'
+                });
+            }
+        }, 300);
+    }
+});
+
+// ハンバーガーメニューの処理
 $(".openbtn").click(function () {
     $(this).toggleClass('active');
     $("#g-nav").toggleClass('panelactive');
@@ -15,29 +57,14 @@ function slideShow() {
     const slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
     
-    // 最初のスライドを表示
     slides[0].classList.add('active');
     
     setInterval(() => {
-        // 現在のスライドをフェードアウト
         slides[currentSlide].classList.remove('active');
-        
-        // 次のスライドのインデックスを計算
         currentSlide = (currentSlide + 1) % slides.length;
-        
-        // 次のスライドをフェードイン
         slides[currentSlide].classList.add('active');
-    }, 5000); // 5秒ごとに切り替え
+    }, 5000);
 }
-
-// DOMの読み込み完了後に実行
-document.addEventListener('DOMContentLoaded', function() {
-    slideShow();
-    AOS.init({
-        duration: 800,
-        once: true
-    });
-});
 
 particlesJS("particles-js",{
 	"particles":{
@@ -95,7 +122,7 @@ particlesJS("particles-js",{
 			"enable":true,
 			"speed":6,//この数値を小さくするとゆっくりな動きになる
 			"direction":"none",//方向指定なし
-			"random":false,//動きはランダムにしない
+			"random":false,//動はランダムにしない
 			"straight":false,//動きをとどめない
 			"out_mode":"out",//画面の外に出るように描写
 			"bounce":false,//跳ね返りなし
