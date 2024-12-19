@@ -712,12 +712,14 @@ footer {
     .main-left {
         width: 100%;
         padding: 1.5rem;
+        order: 2;
     }
 
     .main-right {
         width: 100%;
         height: 60vh;
         margin-left: 0;
+        order: 1;
     }
 }
 
