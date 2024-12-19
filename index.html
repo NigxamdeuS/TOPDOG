@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>まーじゃん教室 | 初心者から上級者まで</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
     <!-- ハンバーガーメニュー -->
@@ -53,6 +55,8 @@
 
     <!-- メインコンテンツ -->
     <main>
+        <div id="particles-js"></div>
+<div id="wrapper">
         <section class="main">
             <div class="main-left">
                 <div class="logo-area">
@@ -104,6 +108,26 @@
             </div>
         </section>
 
+        <div class="section-title" data-aos="fade-up">
+            <h2>当教室の特徴</h2>
+            <p>TOPDOGで学ぶ3つの魅力</p>
+        </div>
+
+        <section class="features-grid">
+            <div class="feature-box" data-aos="fade-up">
+                <h3>WEB制作</h3>
+                <p>ホームページやコーポレートサイトLPなど企業様向けに直感するWEBサイトを制作します。</p>
+            </div>
+            <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
+                <h3>VALORANT</h3>
+                <p>ランクはアセンダント！コントローラが多いです！FPSに限らずPCゲームはジャンル問わずいろいろしています</p>
+            </div>
+            <div class="feature-box" data-aos="fade-up" data-aos-delay="400">
+                <h3>野球観戦</h3>
+                <p>西武ライオンズが好きですが京都生まれなので年に数回ではありますが東京で野球観戦に行きます。</p>
+            </div>
+        </section>
+
         <!-- ヒーローセクション -->
         <section class="hero">
             <div class="hero-frame">
@@ -117,6 +141,8 @@
                 </div>
             </div>
         </section>
+
+    </div>
     </main>
 
     <!-- フッター -->
@@ -146,6 +172,7 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- 自作のJS -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
