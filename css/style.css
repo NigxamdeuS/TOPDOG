@@ -168,30 +168,46 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 15px 0;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 .header-inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
 .logo h1 {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
     color: var(--secondary-color);
     letter-spacing: 0.05em;
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .pc-nav {
@@ -200,10 +216,8 @@ header {
 
 .pc-nav ul {
     display: flex;
-    gap: 3rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    gap: 2.5rem;
+    align-items: center;
 }
 
 .pc-nav ul li a {
@@ -212,8 +226,8 @@ header {
     font-size: 0.95rem;
     font-weight: 500;
     letter-spacing: 0.05em;
+    padding: 8px 0;
     position: relative;
-    padding: 0.5rem 0;
     transition: color 0.3s ease;
 }
 
@@ -230,23 +244,39 @@ header {
     transition: transform 0.3s ease;
 }
 
+.pc-nav ul li a:hover {
+    color: var(--primary-color);
+}
+
 .pc-nav ul li a:hover::after {
     transform: scaleX(1);
     transform-origin: left;
 }
 
-.pc-nav ul li a:hover {
-    color: var(--primary-color);
+/* スクロール時のヘッダー */
+header.scrolled {
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
-    .pc-nav {
-        display: none; /* モバイルでは非表示 */
-    }
-    
     .header-inner {
-        height: 60px; /* モバイルでは高さを小さく */
+        padding: 0 1rem;
+        height: 50px;
+    }
+
+    .logo-img {
+        height: 30px;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+
+    .pc-nav {
+        display: none;
     }
 }
 
@@ -469,7 +499,7 @@ main {
     }
 }
 
-/* ハンバーガーメニューとグローバルナビの表示制御 */
+/* ハンバーガーメニューとグローバルナビの表示制�� */
 .openbtn,
 #g-nav,
 .circle-bg {
